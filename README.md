@@ -1,6 +1,6 @@
 # Shivayogi Hiremath — Professional Portfolio
 
-A production-focused portfolio for Shivayogi Hiremath, Lead Android Engineer and Mobile Architect. The site presents verified experience, two public product case studies, an authentic profile portrait, and supplied resume assets.
+A production-focused portfolio for Shivayogi Hiremath, Lead Android Engineer and Mobile Architect. The light-only site presents verified experience, public links for seven worked-on applications, two product case studies, a supplied profile portrait, and supplied resume assets.
 
 [View the live website](https://shivayogih.github.io/shivayogi-portfolio/)
 
@@ -18,6 +18,7 @@ Portfolio v1 is live at [shivayogih.github.io/shivayogi-portfolio](https://shiva
 - Static export for GitHub Pages under `/shivayogi-portfolio/`
 - Vitest, Testing Library, and jest-dom
 - Supplied concise resume and detailed CV assets with structural PDF validation
+- Separate GitHub-backed `/admin/` publishing workspace for content and media updates
 - GitHub Actions CI and official GitHub Pages deployment actions
 
 ## Local setup
@@ -51,16 +52,20 @@ Open [http://localhost:3000](http://localhost:3000). Local development intention
 
 ## Architecture
 
-Personal content is isolated in [`src/content/portfolio.ts`](src/content/portfolio.ts). Server-rendered presentation components consume that model, while a small progressive-enhancement script handles theme selection, mobile navigation, and clipboard feedback without React hydration. Static export configuration applies the repository base path only in GitHub Actions so local navigation remains simple.
+Personal content is isolated in [`src/content/portfolio.json`](src/content/portfolio.json), then checked against the TypeScript model in [`src/content/portfolio.ts`](src/content/portfolio.ts). Server-rendered presentation components consume that model, while focused React client components handle the admin editor, mobile navigation, and clipboard feedback. Static export configuration applies the repository base path only in GitHub Actions so local navigation remains simple.
 
 See [`docs/architecture.md`](docs/architecture.md) for the full structure and runtime boundaries.
 
 ## Updating content
 
-1. Edit the typed source in `src/content/portfolio.ts`.
-2. Replace resume assets only with reviewed source documents supplied by Shivayogi.
+Use `/admin/` for routine updates. Create a fine-grained GitHub token limited to this repository with **Contents: read and write**, paste it into the session-only token field, load the latest content, edit the values or replace media, confirm, and publish. The token is never stored by the site.
+
+For code review or recovery:
+
+1. Edit `src/content/portfolio.json` directly.
+2. Replace resume or profile assets only with reviewed files supplied by Shivayogi.
 3. Run `npm run verify`.
-4. Review the website and both PDF downloads before committing.
+4. Review the website, worked-app links, admin page, and both PDF downloads before committing.
 
 Do not add unverified employment metrics, social profiles, public project links, or confidential client material. See [`docs/content-guide.md`](docs/content-guide.md).
 

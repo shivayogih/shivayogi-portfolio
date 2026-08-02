@@ -2,7 +2,7 @@
 
 ## Source of truth
 
-Update `src/content/portfolio.ts`. Avoid placing personal facts directly inside presentation components when they can reasonably belong in the typed model.
+Use the separate `/admin/` page for routine updates, or edit `src/content/portfolio.json` directly during code review. Avoid placing personal facts directly inside presentation components when they can reasonably belong in the content model.
 
 After every content change:
 
@@ -33,13 +33,21 @@ Do not add:
 
 Add a `{ label, href }` item to `portfolio.socials` only after verifying the public URL belongs to Shivayogi. Empty items are intentionally filtered from the interface and structured-data `sameAs` list.
 
+## Worked applications
+
+`portfolio.apps` contains public store links for Royal Caribbean International, businessONLINE X, Sam’s Club, TropoGo, Maharah, Maher, and the archived MyDukan listing. Each card must describe Shivayogi’s contribution conservatively and acknowledge that the work was completed as part of the respective product and engineering team. Store local icons under `public/app-icons/`.
+
 ## Adding a project
 
 Supply every field in the `Project` type: overview, problem, role, approach, architecture, decisions, challenges, outcome, technologies, current status, and verified links. Use conservative outcome language when metrics or release state are unknown.
 
 ## Resume and portrait assets
 
-The canonical two-page resume, detailed three-page CV, and profile portrait are supplied assets. Do not regenerate, retouch, or replace them without an updated source file from Shivayogi. Run `npm run verify:resume` after replacing either PDF.
+The canonical two-page resume, detailed three-page CV, and profile portrait are supplied assets. The admin page can replace them in one atomic GitHub commit. Do not regenerate, retouch, or replace them without an updated source file from Shivayogi. Run `npm run verify:resume` after replacing either PDF.
+
+## Admin publishing security
+
+Use a fine-grained GitHub personal access token restricted to `shivayogih/shivayogi-portfolio` with **Contents: read and write**. The admin page intentionally does not store the token. Never place it in portfolio content, a URL, browser storage, screenshots, source files, or issue/PR comments.
 
 ## Tone
 
