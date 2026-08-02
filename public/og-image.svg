@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0b0f16"/>
+      <stop offset="1" stop-color="#151c2a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(940 110) rotate(135) scale(460)">
+      <stop stop-color="#7165eb" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#7165eb" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#dce6f3" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g transform="translate(76 76)">
+    <rect width="58" height="58" rx="16" fill="#292348" stroke="#7165eb" stroke-opacity=".7"/>
+    <text x="29" y="36" text-anchor="middle" fill="#b7afff" font-family="Arial, sans-serif" font-size="18" font-weight="700">SH</text>
+    <text x="0" y="160" fill="#70d7cc" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">LEAD ANDROID DEVELOPER · MOBILE ARCHITECT</text>
+    <text x="0" y="240" fill="#f4f3ee" font-family="Arial, sans-serif" font-size="66" font-weight="700">Shivayogi Hiremath</text>
+    <text x="0" y="318" fill="#f4f3ee" font-family="Arial, sans-serif" font-size="44" font-weight="700">Scalable. Secure. High-performance.</text>
+    <text x="0" y="384" fill="#aeb8c7" font-family="Arial, sans-serif" font-size="26">Kotlin · Jetpack Compose · Clean Architecture · Enterprise Android</text>
+    <g transform="translate(0 442)">
+      <rect width="390" height="62" rx="31" fill="#7165eb"/>
+      <text x="195" y="40" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">shivayogih.github.io</text>
+    </g>
+  </g>
+  <g transform="translate(970 324)">
+    <circle r="146" fill="none" stroke="#70d7cc" stroke-opacity=".24"/>
+    <circle r="102" fill="none" stroke="#a69cff" stroke-opacity=".38" stroke-dasharray="9 10"/>
+    <rect x="-66" y="-112" width="132" height="224" rx="28" fill="#111823" stroke="#dce6f3" stroke-opacity=".28" stroke-width="3"/>
+    <rect x="-45" y="-72" width="90" height="8" rx="4" fill="#a69cff"/>
+    <rect x="-45" y="-43" width="67" height="7" rx="3.5" fill="#70d7cc" opacity=".8"/>
+    <rect x="-45" y="-14" width="82" height="7" rx="3.5" fill="#dce6f3" opacity=".38"/>
+    <rect x="-45" y="15" width="72" height="7" rx="3.5" fill="#dce6f3" opacity=".25"/>
+    <circle cy="84" r="9" fill="#70d7cc"/>
+  </g>
+</svg>

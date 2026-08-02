@@ -1,0 +1,57 @@
+{
+  "name": "shivayogi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Professional portfolio for Shivayogi Hiremath, Lead Android Developer and Mobile Architect.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10"
+  },
+  "overrides": {
+    "postcss": "8.5.23",
+    "sharp": "0.35.3"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "preview": "node scripts/preview.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "qa:browser": "tsx scripts/browser-qa.ts",
+    "qa:lighthouse": "tsx scripts/lighthouse-qa.ts",
+    "generate:resume": "tsx scripts/generate-resume.ts",
+    "verify:export": "tsx scripts/verify-export.ts",
+    "verify:resume": "tsx scripts/verify-resume.ts",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run generate:resume && npm run verify:resume && npm run build && npm run verify:export"
+  },
+  "dependencies": {
+    "next": "16.2.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "26.1.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "chrome-launcher": "1.2.1",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.2.12",
+    "jsdom": "30.0.1",
+    "lighthouse": "13.4.1",
+    "pdf-lib": "1.17.1",
+    "playwright-core": "1.62.1",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}
