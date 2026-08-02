@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import portfolioData from "@/content/portfolio.json";
 
 type JsonPrimitive = string | number | boolean | null;
@@ -15,6 +15,10 @@ const repository = {
   branch: "main",
   contentPath: "src/content/portfolio.json",
 };
+const productionHost = new URL(portfolioData.site.url).hostname;
+const subscribeToLocation = () => () => undefined;
+const getProductionSnapshot = () => window.location.hostname === productionHost;
+const getServerProductionSnapshot = () => false;
 
 const assetPaths: Record<AssetKey, string> = {
   profile: "public/shivayogi-hiremath-profile.png",
@@ -379,6 +383,11 @@ export function AdminEditor() {
   const [assets, setAssets] = useState<Partial<Record<AssetKey, File>>>({});
   const [confirmed, setConfirmed] = useState(false);
   const [busy, setBusy] = useState(false);
+  const isProduction = useSyncExternalStore(
+    subscribeToLocation,
+    getProductionSnapshot,
+    getServerProductionSnapshot,
+  );
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
 
@@ -437,6 +446,7 @@ export function AdminEditor() {
     setStatus("Validating portfolio content…");
     try {
       if (!token.trim()) throw new Error("Enter a GitHub token before publishing.");
+      if (!isProduction) throw new Error("Publishing is available only from the live admin page.");
       if (!confirmed) throw new Error("Confirm the deployment checkbox before publishing.");
       validateContent(draft);
 
@@ -656,10 +666,15 @@ export function AdminEditor() {
               />
               <span>I reviewed these changes and want to deploy them.</span>
             </label>
+            {!isProduction ? (
+              <p className="admin-preview-note">
+                Preview mode: publishing becomes available on the live GitHub Pages admin link.
+              </p>
+            ) : null}
             <button
               className="admin-button admin-button--primary"
               type="button"
-              disabled={busy || !token.trim() || !confirmed}
+              disabled={busy || !token.trim() || !confirmed || !isProduction}
               onClick={publish}
             >
               {busy ? "Working…" : "Publish website changes"}

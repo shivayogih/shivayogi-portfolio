@@ -1363,7 +1363,8 @@ main > .section {
 }
 
 .admin-status,
-.admin-error {
+.admin-error,
+.admin-preview-note {
   border-radius: 10px;
   margin: 14px 0 0;
   padding: 10px 11px;
@@ -1379,6 +1380,11 @@ main > .section {
 .admin-error {
   background: #fbe8ea;
   color: #8b2935;
+}
+
+.admin-preview-note {
+  background: #fff4d9;
+  color: #795500;
 }
 
 .project-grid {

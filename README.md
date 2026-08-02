@@ -58,7 +58,7 @@ See [`docs/architecture.md`](docs/architecture.md) for the full structure and ru
 
 ## Updating content
 
-Use `/admin/` for routine updates. Create a fine-grained GitHub token limited to this repository with **Contents: read and write**, paste it into the session-only token field, load the latest content, edit the values or replace media, confirm, and publish. The token is never stored by the site.
+Use the live `/admin/` page for routine updates. Create a fine-grained GitHub token limited to this repository with **Contents: read and write**, paste it into the session-only token field, load the latest content, edit the values or replace media, confirm, and publish. The token is never stored by the site. Localhost and branch previews are intentionally view-only.
 
 For code review or recovery:
 

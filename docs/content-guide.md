@@ -47,7 +47,7 @@ The canonical two-page resume, detailed three-page CV, and profile portrait are 
 
 ## Admin publishing security
 
-Use a fine-grained GitHub personal access token restricted to `shivayogih/shivayogi-portfolio` with **Contents: read and write**. The admin page intentionally does not store the token. Never place it in portfolio content, a URL, browser storage, screenshots, source files, or issue/PR comments.
+Use a fine-grained GitHub personal access token restricted to `shivayogih/shivayogi-portfolio` with **Contents: read and write**. The admin page intentionally does not store the token and enables publishing only on the live GitHub Pages hostname; localhost and branch previews are view-only. Never place the token in portfolio content, a URL, browser storage, screenshots, source files, or issue/PR comments.
 
 ## Tone
 
