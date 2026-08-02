@@ -36,7 +36,7 @@ PowerShell:
 $env:GITHUB_ACTIONS = "true"
 $env:NEXT_PUBLIC_GITHUB_PAGES = "true"
 $env:NEXT_PUBLIC_BASE_PATH = "/shivayogi-portfolio"
-npm run generate:resume
+npm run verify:resume
 npm run build
 npm run verify:export
 ```

@@ -1,14 +1,14 @@
 # Shivayogi Hiremath — Professional Portfolio
 
-A production-focused portfolio for Shivayogi Hiremath, Lead Android Developer, Senior Android Engineer, and Mobile Architect. The site presents verified experience, public-safe case studies, a generated resume, and a clear view of Shivayogi’s Android engineering practice.
+A production-focused portfolio for Shivayogi Hiremath, Lead Android Engineer and Mobile Architect. The site presents verified experience, two public product case studies, an authentic profile portrait, and supplied resume assets.
 
 [View the live website](https://shivayogih.github.io/shivayogi-portfolio/)
 
-![Portfolio home page in dark theme](docs/portfolio-preview.png)
+![Portfolio home page with Shivayogi Hiremath’s profile portrait](docs/portfolio-preview.png)
 
 ## Project status
 
-The complete v1 release candidate is implemented on `feat/portfolio-v1`. The public deployment is produced from `main` by the GitHub Pages workflow after CI and review succeed.
+Portfolio v1 is live at [shivayogih.github.io/shivayogi-portfolio](https://shivayogih.github.io/shivayogi-portfolio/). CI validates every pull request, and the GitHub Pages workflow publishes the reviewed static export from `main`.
 
 ## Technology
 
@@ -17,7 +17,7 @@ The complete v1 release candidate is implemented on `feat/portfolio-v1`. The pub
 - Tailwind CSS 4 with a token-based custom visual system
 - Static export for GitHub Pages under `/shivayogi-portfolio/`
 - Vitest, Testing Library, and jest-dom
-- A typed PDF resume generator built with `pdf-lib`
+- Supplied concise resume and detailed CV assets with structural PDF validation
 - GitHub Actions CI and official GitHub Pages deployment actions
 
 ## Local setup
@@ -42,8 +42,7 @@ Open [http://localhost:3000](http://localhost:3000). Local development intention
 | `npm run lint` | Run ESLint with zero warnings allowed |
 | `npm run typecheck` | Run strict TypeScript validation |
 | `npm run test` | Run component and content-contract tests |
-| `npm run generate:resume` | Regenerate the downloadable PDF from typed content |
-| `npm run verify:resume` | Validate the generated PDF structure and page count |
+| `npm run verify:resume` | Validate the supplied resume and detailed CV structure and page counts |
 | `npm run build` | Create the static site in `out/` |
 | `npm run verify:export` | Validate exported routes, assets, and privacy constraints |
 | `npm run qa:browser` | Run browser, responsive, keyboard, and WCAG checks in Microsoft Edge |
@@ -59,21 +58,15 @@ See [`docs/architecture.md`](docs/architecture.md) for the full structure and ru
 ## Updating content
 
 1. Edit the typed source in `src/content/portfolio.ts`.
-2. Regenerate the resume with `npm run generate:resume`.
+2. Replace resume assets only with reviewed source documents supplied by Shivayogi.
 3. Run `npm run verify`.
-4. Review both the website and PDF before committing.
+4. Review the website and both PDF downloads before committing.
 
 Do not add unverified employment metrics, social profiles, public project links, or confidential client material. See [`docs/content-guide.md`](docs/content-guide.md).
 
 ## Resume
 
-The HTML resume is available at `/resume/`. The PDF at `public/Shivayogi-Hiremath-Resume.pdf` is generated from the same typed portfolio content:
-
-```bash
-npm run generate:resume
-```
-
-The output is a two-page, text-based, ATS-friendly PDF with no private address or sensitive personal information.
+The HTML resume is available at `/resume/`. The concise two-page resume is stored at `public/Shivayogi-Hiremath-Resume.pdf`, and the detailed three-page CV is stored at `public/Shivayogi-Hiremath-Detailed-CV.pdf`. Both files were supplied by Shivayogi and are validated during CI.
 
 ## Deployment
 

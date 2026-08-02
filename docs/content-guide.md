@@ -7,7 +7,6 @@ Update `src/content/portfolio.ts`. Avoid placing personal facts directly inside 
 After every content change:
 
 ```bash
-npm run generate:resume
 npm run verify
 ```
 
@@ -26,10 +25,9 @@ Do not add:
 
 ## Project status language
 
-- Toolly must remain labelled `Private product — active development`. It must not expose a source URL or imply a public release.
+- Toolly Scan must link only to the verified public repository at `https://github.com/shivayogih/Toolly` and must not imply production adoption.
 - DataLoom must remain described as active pre-V1 development and not production-ready until its public repository documents otherwise.
-- GalaxyGaze must not display a source link unless a matching public repository is verified.
-- Enterprise case studies must remain high-level and free of client-confidential material.
+- The featured project collection contains only Toolly Scan and DataLoom unless Shivayogi explicitly requests another verified project.
 
 ## Adding a verified social link
 
@@ -38,6 +36,10 @@ Add a `{ label, href }` item to `portfolio.socials` only after verifying the pub
 ## Adding a project
 
 Supply every field in the `Project` type: overview, problem, role, approach, architecture, decisions, challenges, outcome, technologies, current status, and verified links. Use conservative outcome language when metrics or release state are unknown.
+
+## Resume and portrait assets
+
+The canonical two-page resume, detailed three-page CV, and profile portrait are supplied assets. Do not regenerate, retouch, or replace them without an updated source file from Shivayogi. Run `npm run verify:resume` after replacing either PDF.
 
 ## Tone
 

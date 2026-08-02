@@ -6,9 +6,9 @@ The portfolio is designed to be static, fast, accessible, easy to update, and re
 
 ## Content flow
 
-`src/content/portfolio.ts` is the single typed source for identity, navigation, experience, projects, skills, principles, leadership content, education, verified links, SEO copy, and resume content.
+`src/content/portfolio.ts` is the single typed source for identity, navigation, experience, projects, skills, principles, leadership content, education, verified links, and SEO copy.
 
-The model is checked by `PortfolioContent` in `src/types/portfolio.ts`. Both website sections and `scripts/generate-resume.ts` consume it directly, preventing independent website and resume copies from drifting.
+The model is checked by `PortfolioContent` in `src/types/portfolio.ts`. The downloadable resume, detailed CV, and portrait are supplied public assets validated separately from the typed website content.
 
 ## Rendering boundaries
 
@@ -25,8 +25,6 @@ The site exports:
 - `/resume/`
 - `/projects/toolly/`
 - `/projects/dataloom/`
-- `/projects/galaxy-gaze/`
-- `/projects/enterprise-android-delivery/`
 - `/robots.txt`
 - `/sitemap.xml`
 - `/manifest.webmanifest`
@@ -36,13 +34,13 @@ The site exports:
 
 ## Styling and themes
 
-`src/app/globals.css` combines Tailwind CSS 4 with repository-owned tokens and components. CSS custom properties define the light and dark palettes. A small inline script applies the stored or system theme before paint to avoid a visible theme flash.
+`src/app/globals.css` combines Tailwind CSS 4 with repository-owned tokens and components. CSS custom properties define the light-first navy-and-teal system and its dark counterpart. A small inline script applies a stored theme before paint, defaulting new visitors to light mode.
 
 Motion is limited to short CSS transitions and disabled when `prefers-reduced-motion: reduce` is active. Focus states, semantic landmarks, heading order, a skip link, and practical touch targets are built into the component system.
 
-## Resume generation
+## Resume assets
 
-`scripts/generate-resume.ts` uses `pdf-lib` and standard embedded fonts to produce an ATS-friendly, searchable two-page PDF. `scripts/verify-resume.ts` validates its PDF header, metadata, size, and page count. The file is committed so the download is never broken between builds.
+`scripts/verify-resume.ts` validates the PDF headers, minimum sizes, and expected page counts of the supplied two-page resume and three-page detailed CV. Both files are committed so downloads are never broken between builds.
 
 ## Quality gates
 
@@ -52,4 +50,4 @@ Motion is limited to short CSS transitions and disabled when `prefers-reduced-mo
 - resume structure verification
 - production static build
 - exported-route and asset verification
-- privacy assertion preventing Toolly’s private repository URL from entering the output
+- project assertion limiting the public collection to Toolly Scan and DataLoom with verified repository links
