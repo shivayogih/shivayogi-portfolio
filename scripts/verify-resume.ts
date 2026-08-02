@@ -25,4 +25,3 @@ if (!title?.includes("Shivayogi Hiremath")) {
 }
 
 console.log(`Verified searchable text PDF structure: ${details.size} bytes, ${pdf.getPageCount()} pages.`);
-

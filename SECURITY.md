@@ -18,4 +18,3 @@ Please allow reasonable time for investigation before public disclosure.
 ## Repository safety
 
 Never commit API keys, tokens, client-confidential material, private repository metadata, internal screenshots, or personal documents. The website is a static export and does not require runtime secrets.
-

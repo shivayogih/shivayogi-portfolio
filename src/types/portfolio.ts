@@ -2,7 +2,6 @@ export type NavigationItem = {
   label: string;
   href: `#${string}`;
 };
-
 export type SocialLink = {
   label: string;
   href?: string;
@@ -90,4 +89,3 @@ export type PortfolioContent = {
     completed: string;
   };
 };
-

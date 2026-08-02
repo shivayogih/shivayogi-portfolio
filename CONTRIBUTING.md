@@ -24,4 +24,3 @@ npm run verify
 ```
 
 Use focused conventional commits such as `feat:`, `fix:`, `test:`, `docs:`, `ci:`, and `chore:`. Pull requests should explain the user-facing change, validation performed, accessibility impact, and any content verification source.
-

@@ -52,4 +52,3 @@ After deployment:
 3. inspect home, resume, project, and 404 routes;
 4. verify navigation, theme persistence, mobile menu, PDF download, SVG assets, and `_next` assets under the repository path;
 5. capture the final production screenshot and update `docs/portfolio-preview.png` if presentation changed.
-

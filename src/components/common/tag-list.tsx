@@ -12,4 +12,3 @@ export function TagList({ items, compact = false }: TagListProps) {
     </ul>
   );
 }
-
