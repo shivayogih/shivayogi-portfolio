@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Next.js outputs
+.next/
+out/
+
+# Test and quality outputs
+coverage/
+lighthouse-reports/
+*.tsbuildinfo
+
+# Local tooling and environment
+.tools/
+.env*
+!.env.example
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.log
