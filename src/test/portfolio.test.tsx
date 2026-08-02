@@ -11,6 +11,7 @@ import { Principles } from "@/components/sections/principles";
 import { Projects } from "@/components/sections/projects";
 import { ResumeSection } from "@/components/sections/resume-section";
 import { Skills } from "@/components/sections/skills";
+import { withBasePath } from "@/config/site";
 import { portfolio } from "@/content/portfolio";
 
 describe("portfolio content and interaction contract", () => {
@@ -24,7 +25,7 @@ describe("portfolio content and interaction contract", () => {
     expect(screen.getByRole("link", { name: /view my work/i })).toHaveAttribute("href", "#projects");
     expect(screen.getByRole("link", { name: /download resume/i })).toHaveAttribute(
       "href",
-      "/Shivayogi-Hiremath-Resume.pdf",
+      withBasePath("/Shivayogi-Hiremath-Resume.pdf"),
     );
   });
 
