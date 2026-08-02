@@ -118,6 +118,9 @@ try {
   }
 
   await page.getByRole("button", { name: "Copy email" }).click();
+  await page.waitForFunction(
+    () => Boolean(document.querySelector("[data-copy-status]")?.textContent),
+  );
   const copyStatus = await page.getByRole("status").textContent();
   if (copyStatus !== "Email copied to clipboard.") {
     throw new Error(`Copy-email control feedback was: ${copyStatus}`);
