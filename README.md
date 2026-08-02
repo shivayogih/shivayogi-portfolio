@@ -8,7 +8,7 @@ A production-focused portfolio for Shivayogi Hiremath, Lead Android Developer, S
 
 ## Project status
 
-The complete v1 release candidate is implemented on `feat/portfolio-v1`. The public deployment is produced from `main` by the GitHub Pages workflow after CI and review succeed.
+Portfolio v1 is live at [shivayogih.github.io/shivayogi-portfolio](https://shivayogih.github.io/shivayogi-portfolio/). CI validates every pull request, and the GitHub Pages workflow publishes the reviewed static export from `main`.
 
 ## Technology
 
