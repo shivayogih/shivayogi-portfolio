@@ -8,8 +8,8 @@ export function ResumeSection() {
         <div>
           <SectionHeading
             eyebrow="Resume"
-            title="The full professional timeline, ready to review."
-            description="A concise, ATS-friendly resume generated from the same typed source as this website."
+            title="The right level of detail for every review."
+            description="Start with the concise two-page Lead Android Engineer resume, or download the detailed three-page CV for the full role and achievement history."
             headingId="resume-title"
           />
           <div className="button-row">
@@ -21,7 +21,14 @@ export function ResumeSection() {
               href={withBasePath("/Shivayogi-Hiremath-Resume.pdf")}
               download
             >
-              Download PDF
+              Download 2-page resume
+            </a>
+            <a
+              className="button button--ghost"
+              href={withBasePath("/Shivayogi-Hiremath-Detailed-CV.pdf")}
+              download
+            >
+              Download detailed CV
             </a>
           </div>
         </div>

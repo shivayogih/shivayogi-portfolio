@@ -2,9 +2,12 @@ import { TagList } from "@/components/common/tag-list";
 import { withBasePath } from "@/config/site";
 import type { Project } from "@/types/portfolio";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="project-card">
+      <span className="project-card__index" aria-hidden="true">
+        {String(index + 1).padStart(2, "0")}
+      </span>
       <div className="project-card__topline">
         <p>{project.eyebrow}</p>
         <span className={`status status--${project.statusTone}`}>{project.status}</span>
@@ -19,11 +22,13 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.links.map((link) => (
           <a
             key={link.href}
+            className="project-card__source"
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noreferrer" : undefined}
           >
             {link.label}
+            <span aria-hidden="true"> ↗</span>
             {link.external ? <span className="sr-only"> (opens in a new tab)</span> : null}
           </a>
         ))}

@@ -5,6 +5,7 @@ import { portfolio } from "@/content/portfolio";
 import "./globals.css";
 
 const productionBasePath = "/shivayogi-portfolio";
+const socialImage = new URL("og-image.svg", portfolio.site.url).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(portfolio.site.url),
@@ -28,10 +29,10 @@ export const metadata: Metadata = {
     description: portfolio.site.description,
     images: [
       {
-        url: `${productionBasePath}/og-image.svg`,
+        url: socialImage,
         width: 1200,
         height: 630,
-        alt: `${portfolio.person.name}, Lead Android Developer and Mobile Architect`,
+        alt: `${portfolio.person.name}, Lead Android Engineer and Mobile Architect`,
       },
     ],
   },
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: portfolio.site.title,
     description: portfolio.site.description,
-    images: [`${productionBasePath}/og-image.svg`],
+    images: [socialImage],
   },
   icons: {
     icon: `${productionBasePath}/icon.svg`,
@@ -53,8 +54,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f1ea" },
-    { media: "(prefers-color-scheme: dark)", color: "#0c1017" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f6f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#07161c" },
   ],
 };
 
@@ -62,7 +63,7 @@ const themeScript = `
   (function () {
     try {
       var saved = localStorage.getItem('theme');
-      var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var dark = saved === 'dark';
       var theme = dark ? 'dark' : 'light';
       document.documentElement.dataset.theme = theme;
       document.documentElement.style.colorScheme = theme;

@@ -12,7 +12,7 @@ export function Footer() {
       <div className="shell site-footer__inner">
         <div>
           <p className="site-footer__name">{portfolio.person.name}</p>
-          <p>Lead Android Developer · Senior Android Engineer · Mobile Architect</p>
+          <p>Lead Android Engineer · Kotlin · Jetpack Compose · Clean Architecture</p>
         </div>
         <nav aria-label="Footer links">
           {links.map((link) => (

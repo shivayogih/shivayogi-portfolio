@@ -6,11 +6,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Shivayogi Hiremath — Portfolio",
     short_name: "SH Portfolio",
-    description: "Lead Android Developer and Mobile Architect portfolio.",
+    description: "Lead Android Engineer and Mobile Architect portfolio.",
     start_url: "/shivayogi-portfolio/",
     display: "standalone",
-    background_color: "#0c1017",
-    theme_color: "#6754e2",
+    background_color: "#f3f6f4",
+    theme_color: "#0c5f68",
     icons: [
       {
         src: "/shivayogi-portfolio/icon.svg",

@@ -4,24 +4,24 @@ export const portfolio: PortfolioContent = {
   person: {
     name: "Shivayogi Hiremath",
     titles: [
-      "Lead Android Developer",
-      "Senior Android Engineer",
+      "Lead Android Engineer",
+      "Senior Android Developer",
       "Mobile Architect",
     ],
     location: "Bengaluru, Karnataka, India",
     email: "shivayogih72@gmail.com",
-    availability: "Open to Senior and Lead Android engineering opportunities.",
-    hero: "I build scalable, secure, and high-performance Android products.",
+    availability: "Immediate joiner · Open to Lead and Senior Android roles",
+    hero: "Android engineering for products where reliability is not optional.",
     heroSupport:
-      "Senior Android engineer specialising in Kotlin, Jetpack Compose, Clean Architecture, scalable mobile platforms, and enterprise application development across travel, banking, retail, and mobility.",
+      "I lead Kotlin and Jetpack Compose delivery for secure, offline-first products used across travel, banking, retail, and consumer platforms—from architecture decisions through release.",
     summary:
-      "Senior and Lead Android engineer with professional Android development experience since 2017. I design maintainable mobile platforms, guide delivery across complex product areas, and stay hands-on from architecture and implementation through testing, performance work, and release support.",
+      "Lead Android Engineer with 8+ years building large-scale Kotlin and Jetpack Compose applications for Royal Caribbean, Walmart’s Sam’s Club, Emirates NBD, and product startups. I own architecture decisions across MVVM, MVI, and Clean Architecture, mentor engineering teams, and stay hands-on from implementation through release.",
     github: "https://github.com/shivayogih",
   },
   site: {
-    title: "Shivayogi Hiremath | Lead Android Developer",
+    title: "Shivayogi Hiremath | Lead Android Engineer",
     description:
-      "Portfolio of Shivayogi Hiremath, a Lead Android Developer and Mobile Architect specialising in Kotlin, Jetpack Compose, and scalable enterprise applications.",
+      "Portfolio of Shivayogi Hiremath, a Lead Android Engineer specialising in Kotlin, Jetpack Compose, Clean Architecture, and reliable enterprise mobile products.",
     url: "https://shivayogih.github.io/shivayogi-portfolio/",
     repository: "https://github.com/shivayogih/shivayogi-portfolio",
   },
@@ -36,8 +36,8 @@ export const portfolio: PortfolioContent = {
   ],
   socials: [
     { label: "GitHub", href: "https://github.com/shivayogih" },
-    { label: "LinkedIn" },
-    { label: "Medium" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/shivayogi-h-45784594" },
+    { label: "Medium", href: "https://medium.com/@shivayogih25" },
   ],
   strengths: [
     {
@@ -69,12 +69,12 @@ export const portfolio: PortfolioContent = {
       period: "Nov 2025 – Jun 2026",
       project: "Royal Caribbean International Android application",
       summary:
-        "Led hands-on Android delivery for a large travel and hospitality application, with work kept deliberately high level to respect client confidentiality.",
+        "Led Kotlin and Jetpack Compose delivery across booking, digital check-in, onboard planning, and guest-experience modules for an application serving millions of travellers.",
       highlights: [
-        "Built Kotlin and Jetpack Compose features using MVVM, MVI, and Clean Architecture patterns.",
-        "Integrated REST and GraphQL services with Coroutines and Flow.",
-        "Created reusable UI components and contributed to architecture discussions and code reviews.",
-        "Supported performance, regression, accessibility, localisation, release, and mentoring activities.",
+        "Architected reusable components and integrated secure REST and GraphQL services.",
+        "Owned code reviews and architecture discussions, catching anti-patterns and performance issues before release.",
+        "Mentored 8 developers on Clean Architecture and MVVM/MVI standards.",
+        "Introduced AI-assisted workflows that reduced routine coding time by 30% while preserving architecture standards.",
       ],
       technologies: [
         "Kotlin",
@@ -94,12 +94,12 @@ export const portfolio: PortfolioContent = {
       period: "Apr 2025 – Jul 2025",
       project: "Business Online X Android application — Payments module",
       summary:
-        "Delivered Android payment workflows within an enterprise banking product while collaborating across engineering and quality disciplines.",
+        "Owned the Payments module end-to-end for a live enterprise banking product, covering business logic, Compose UI, and backend integration.",
       highlights: [
-        "Implemented payment workflows with Kotlin, Compose, MVVM, and MVI.",
-        "Integrated APIs using RxJava and RxKotlin with Koin-based dependency injection.",
-        "Added unit coverage and supported Appium UI automation.",
-        "Worked within Jenkins CI/CD and an Agile delivery model.",
+        "Delivered secure payment workflows with Kotlin, Compose, MVVM, and MVI.",
+        "Integrated REST services using Coroutines, RxJava, and Koin.",
+        "Established Appium UI regression automation to catch defects before release.",
+        "Collaborated with backend, QA, and DevOps teams through Jenkins CI/CD.",
       ],
       technologies: [
         "Kotlin",
@@ -113,17 +113,18 @@ export const portfolio: PortfolioContent = {
       ],
     },
     {
-      company: "Ascendion / Collabera",
+      company: "Collabera Technologies",
       client: "Walmart — Sam’s Club",
-      role: "Lead / Senior Android Engineer",
+      role: "Lead Software Engineer – Android",
       period: "Aug 2024 – Feb 2025",
+      project: "Sam’s Club Android application",
       summary:
-        "Contributed to modular retail application flows spanning pharmacy, authentication, photos, protection plans, and platform routing.",
+        "Delivered pharmacy, wellness, and Photos features for a large-scale retail and membership application within a global cross-functional team.",
       highlights: [
-        "Worked on pharmacy flows including date-of-birth validation, prescription transfer, and family-member features.",
-        "Supported two-factor authentication and Photos PrintBox single sign-on integrations.",
-        "Contributed to Protection Plan migration and Travel and Entertainment routing.",
-        "Implemented platform route handlers and automated tests without exposing proprietary business rules.",
+        "Built the Photos feature and integrated GraphQL services for maintainable data delivery.",
+        "Implemented deep linking and reusable component patterns across product flows.",
+        "Assessed feasibility for unifying Walmart and Sam’s Club wellness and pharmacy codebases.",
+        "Contributed code reviews, automated tests, and migration work across global engineering teams.",
       ],
       technologies: [
         "Kotlin",
@@ -140,12 +141,12 @@ export const portfolio: PortfolioContent = {
       period: "Nov 2020 – Feb 2024",
       project: "TropoGo and SuperLens",
       summary:
-        "Owned hands-on Android architecture and delivery across mobility and productivity products from feature development through release management.",
+        "Owned the Android platform end-to-end at a product startup for more than three years, from early development through stable release.",
       highlights: [
-        "Developed Kotlin and Java applications with maps, location, OTP authentication, notifications, and offline support.",
-        "Built BLE, file, and PDF workflows for mobile use cases.",
-        "Led code reviews and collaborated with product, design, QA, and backend partners.",
-        "Supported release planning, issue investigation, and production delivery.",
+        "Migrated the full codebase from Java to Kotlin and Clean Architecture.",
+        "Designed offline-first synchronization with Room and WorkManager for low-connectivity field use.",
+        "Integrated Maps, payment gateways, WebSocket features, Firebase, and CleverTap.",
+        "Owned estimation, feature delivery, Play Store releases, and Android team growth.",
       ],
       technologies: [
         "Kotlin",
@@ -158,47 +159,44 @@ export const portfolio: PortfolioContent = {
       ],
     },
     {
-      company: "Smarter Biz Technologies",
-      role: "Android Software Engineer",
-      period: "Aug 2020 – Oct 2020",
-      summary:
-        "Professional Android engineering role, retained in the full timeline and intentionally condensed where further verified detail is unavailable.",
-      highlights: [],
-      technologies: ["Android", "Java", "Kotlin"],
-      earlier: true,
-    },
-    {
       company: "NeumSoft Innovations",
       role: "Senior Android Developer",
       period: "Mar 2019 – Mar 2020",
+      project: "Maharah and Maher home-services applications",
       summary:
-        "Senior Android development role, retained in the full timeline and intentionally condensed where further verified detail is unavailable.",
-      highlights: [],
-      technologies: ["Android", "Java", "Kotlin"],
-      earlier: true,
+        "Led a team of 4 Android developers building customer and provider applications on a shared reusable architecture.",
+      highlights: [
+        "Integrated Room, Firebase, MQTT, Maps, and payment gateways.",
+        "Enabled real-time job tracking, location-aware matching, and secure in-app payments.",
+      ],
+      technologies: ["Kotlin", "Java", "MVVM", "Room", "Firebase", "MQTT", "Maps"],
     },
     {
       company: "DigiRetails Software India",
-      role: "Senior Software Developer",
+      role: "Senior Software Engineer – Android",
       period: "Jan 2017 – Feb 2019",
+      project: "MyDukan retail commerce platform",
       summary:
-        "Android software development role marking the beginning of the verified professional timeline in 2017.",
-      highlights: [],
-      technologies: ["Android", "Java"],
-      earlier: true,
+        "Took end-to-end Android ownership for a vendor commerce platform covering pricing, invoicing, and inventory management.",
+      highlights: [
+        "Resolved a major Firebase billing issue within the first 3 days by fixing inefficient database calls.",
+        "Shipped monetization and engagement features that grew the product to 200K+ users and increased daily active usage by 80%.",
+        "Hired and led a growing Android team and supported the backend migration from Firebase to AWS.",
+      ],
+      technologies: ["Java", "Android SDK", "MVVM", "Firebase", "AWS Amplify", "Room"],
     },
   ],
   projects: [
     {
       slug: "toolly",
-      name: "Toolly",
-      eyebrow: "Privacy-first mobile product",
-      status: "Private product — active development",
-      statusTone: "active",
+      name: "Toolly Scan",
+      eyebrow: "Offline-first Android utility suite",
+      status: "Public — active development",
+      statusTone: "public",
       summary:
-        "An offline-first document scanning and productivity utility designed around private, on-device workflows.",
+        "A modern Android toolkit for QR scanning and generation, document workflows, digital business cards, and secure local utilities.",
       overview:
-        "Toolly combines document scanning, QR utilities, and business-card workflows in a privacy-conscious mobile experience. Android is the current focus, with a future iOS and Kotlin Multiplatform direction.",
+        "Toolly combines QR scanning and generation, PDF tools, camera-driven document workflows, digital business cards, encryption, and background processing in one modular Android application.",
       problem:
         "Everyday capture and utility tasks often require several disconnected apps or cloud-first processing. Toolly explores a cohesive workflow that keeps useful data local wherever practical.",
       role:
@@ -220,7 +218,7 @@ export const portfolio: PortfolioContent = {
         "Handling document and card information without weakening local privacy expectations.",
       ],
       outcome:
-        "The product remains under active private development. Release status and adoption are intentionally not claimed.",
+        "The public repository documents the modular architecture and active development roadmap. Release adoption and production-readiness are not claimed.",
       technologies: [
         "Kotlin",
         "Jetpack Compose",
@@ -231,7 +229,13 @@ export const portfolio: PortfolioContent = {
         "MVVM",
         "CI/CD",
       ],
-      links: [],
+      links: [
+        {
+          label: "View public repository",
+          href: "https://github.com/shivayogih/Toolly",
+          external: true,
+        },
+      ],
       featured: true,
     },
     {
@@ -282,97 +286,6 @@ export const portfolio: PortfolioContent = {
           external: true,
         },
       ],
-      featured: true,
-    },
-    {
-      slug: "galaxy-gaze",
-      name: "GalaxyGaze",
-      eyebrow: "Modern Android architecture study",
-      status: "Portfolio project — source link unverified",
-      statusTone: "concept",
-      summary:
-        "A NASA Astronomy Picture of the Day application demonstrating resilient data flow and contemporary Android architecture.",
-      overview:
-        "GalaxyGaze presents NASA Astronomy Picture of the Day content in a Compose interface with image and video handling, refresh behaviour, and offline caching.",
-      problem:
-        "Media-rich API content needs clear loading, error, refresh, and offline states while preserving a responsive user experience.",
-      role:
-        "Android architecture, feature implementation, local caching strategy, and unit testing.",
-      approach: [
-        "Model UI state explicitly through MVVM and Clean Architecture boundaries.",
-        "Cache content with Room so previously loaded information remains available offline.",
-        "Handle distinct image and video media types without coupling them to network models.",
-      ],
-      architecture:
-        "A Kotlin and Compose application with presentation, domain, and data layers, Hilt dependency injection, Retrofit networking, Room persistence, and repository-based data coordination.",
-      decisions: [
-        "Use swipe-to-refresh as an explicit user-driven synchronisation action.",
-        "Treat cached content as a resilience feature rather than claiming a full synchronisation engine.",
-        "Keep the source link hidden because a matching public repository could not be verified.",
-      ],
-      challenges: [
-        "Representing mixed NASA media types consistently.",
-        "Balancing fresh remote data with useful offline behaviour.",
-      ],
-      outcome:
-        "A focused demonstration of modern Android application structure. No usage, release, or production-readiness claims are made.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "MVVM",
-        "Clean Architecture",
-        "Hilt",
-        "Retrofit",
-        "Room",
-        "Unit testing",
-      ],
-      links: [],
-      featured: true,
-    },
-    {
-      slug: "enterprise-android-delivery",
-      name: "Enterprise Android delivery",
-      eyebrow: "Travel, banking, and retail",
-      status: "Selected client experience — confidential details omitted",
-      statusTone: "enterprise",
-      summary:
-        "A high-level view of Android delivery across Royal Caribbean, Emirates NBD, and Walmart / Sam’s Club engagements.",
-      overview:
-        "Selected enterprise work across travel, banking, and retail products, described only at a level suitable for a public professional portfolio.",
-      problem:
-        "Large Android products require reliable delivery across modular codebases, evolving APIs, release constraints, accessibility needs, and cross-functional teams.",
-      role:
-        "Hands-on Lead and Senior Android Engineer contributing architecture, implementation, testing, review, defect analysis, mentoring, and release support.",
-      approach: [
-        "Break product requirements into testable, incremental mobile changes.",
-        "Use established application architecture and platform conventions rather than introducing unnecessary novelty.",
-        "Collaborate closely with product, design, backend, QA, and release stakeholders.",
-      ],
-      architecture:
-        "Publicly shareable themes include Kotlin, Jetpack Compose, MVVM and MVI, Clean Architecture, modularisation, REST and GraphQL integration, deep links, dependency injection, and automated testing.",
-      decisions: [
-        "Keep proprietary APIs, code, diagrams, rules, screenshots, and credentials out of the case study.",
-        "Describe contribution areas without inventing metrics or client endorsements.",
-        "Prioritise accessibility, localisation, regression safety, and release readiness alongside feature work.",
-      ],
-      challenges: [
-        "Supporting complex flows while preserving regression safety in mature applications.",
-        "Coordinating delivery across multiple disciplines and established enterprise processes.",
-      ],
-      outcome:
-        "Delivered and supported Android product work across the stated engagements. Confidential outcomes and unsupported quantitative impact are intentionally omitted.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "MVVM",
-        "MVI",
-        "Clean Architecture",
-        "REST",
-        "GraphQL",
-        "Automated testing",
-        "CI/CD",
-      ],
-      links: [],
       featured: true,
     },
   ],

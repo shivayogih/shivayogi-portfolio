@@ -19,10 +19,10 @@ describe("portfolio content and interaction contract", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", {
-        name: "I build scalable, secure, and high-performance Android products.",
+        name: "Android engineering for products where reliability is not optional.",
       }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /view my work/i })).toHaveAttribute("href", "#projects");
+    expect(screen.getByRole("link", { name: /explore my work/i })).toHaveAttribute("href", "#projects");
     expect(screen.getByRole("link", { name: /download resume/i })).toHaveAttribute(
       "href",
       withBasePath("/Shivayogi-Hiremath-Resume.pdf"),
@@ -38,21 +38,34 @@ describe("portfolio content and interaction contract", () => {
     expect(screen.getByRole("button", { name: /open navigation menu/i })).toBeInTheDocument();
   });
 
-  it("renders all featured projects without exposing Toolly source", () => {
+  it("renders only Toolly Scan and DataLoom with verified public repositories", () => {
     render(<Projects />);
-    for (const project of portfolio.projects.filter((item) => item.featured)) {
+    const featuredProjects = portfolio.projects.filter((item) => item.featured);
+    expect(featuredProjects.map((project) => project.slug)).toEqual(["toolly", "dataloom"]);
+    for (const project of featuredProjects) {
       expect(screen.getByRole("heading", { name: project.name })).toBeInTheDocument();
     }
-    const toollyCard = screen.getByRole("heading", { name: "Toolly" }).closest("article");
+    const toollyCard = screen.getByRole("heading", { name: "Toolly Scan" }).closest("article");
     expect(toollyCard).not.toBeNull();
-    expect(within(toollyCard!).queryByRole("link", { name: /repository|source|github/i })).not.toBeInTheDocument();
-    expect(portfolio.projects.find((project) => project.slug === "toolly")?.links).toHaveLength(0);
+    expect(within(toollyCard!).getByRole("link", { name: /view public repository/i })).toHaveAttribute(
+      "href",
+      "https://github.com/shivayogih/Toolly",
+    );
+    expect(portfolio.projects.find((project) => project.slug === "dataloom")?.links[0]?.href).toBe(
+      "https://github.com/dataloom-sdk/dataloom",
+    );
   });
 
-  it("hides unverified empty social URLs", () => {
+  it("renders verified professional profiles", () => {
     render(<Footer />);
-    expect(screen.queryByRole("link", { name: "LinkedIn" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "Medium" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/shivayogi-h-45784594",
+    );
+    expect(screen.getByRole("link", { name: "Medium" })).toHaveAttribute(
+      "href",
+      "https://medium.com/@shivayogih25",
+    );
     expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute("href", portfolio.person.github);
   });
 
@@ -80,13 +93,15 @@ describe("portfolio content and interaction contract", () => {
       </>,
     );
     expect(screen.getByRole("heading", { name: /android delivery across complex product domains/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /purposeful mobile systems/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /two products/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /practical toolkit for modern android products/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /strong systems make the right behaviour easier/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /full professional timeline/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /right level of detail/i })).toBeInTheDocument();
   });
 
-  it("ships the downloadable PDF resume", () => {
+  it("ships the supplied resume, detailed CV, and profile portrait", () => {
     expect(existsSync(path.resolve("public", "Shivayogi-Hiremath-Resume.pdf"))).toBe(true);
+    expect(existsSync(path.resolve("public", "Shivayogi-Hiremath-Detailed-CV.pdf"))).toBe(true);
+    expect(existsSync(path.resolve("public", "shivayogi-hiremath-profile.jpeg"))).toBe(true);
   });
 });
