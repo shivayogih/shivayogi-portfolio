@@ -7,7 +7,6 @@ export function Header() {
     label: item.label,
     href: withBasePath(`/${item.href}`),
   }));
-
   return (
     <header className="site-header">
       <div className="shell site-header__inner">
@@ -15,7 +14,9 @@ export function Header() {
           <span className="brand__mark" aria-hidden="true">
             SH
           </span>
-          <span className="brand__text">Shivayogi Hiremath</span>
+          <span className="brand__text">
+            Shivayogi<span>.</span>
+          </span>
         </a>
 
         <nav className="desktop-navigation" aria-label="Primary navigation">
@@ -24,6 +25,9 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <a className="header-resume" href={withBasePath("/Shivayogi-Hiremath-Resume.pdf")} download>
+            Download CV
+          </a>
         </nav>
 
         <div className="site-header__actions">

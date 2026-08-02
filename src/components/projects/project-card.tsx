@@ -5,9 +5,16 @@ import type { Project } from "@/types/portfolio";
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="project-card">
-      <span className="project-card__index" aria-hidden="true">
-        {String(index + 1).padStart(2, "0")}
-      </span>
+      <div className={`project-card__visual project-card__visual--${project.slug}`} aria-hidden="true">
+        <span className="project-card__visual-index">{String(index + 1).padStart(2, "0")}</span>
+        <div className="project-card__visual-logo">{project.slug === "toolly" ? "TS" : "DL"}</div>
+        <div className="project-card__visual-lines">
+          <span />
+          <span />
+          <span />
+        </div>
+        <strong>{project.name}</strong>
+      </div>
       <div className="project-card__topline">
         <p>{project.eyebrow}</p>
         <span className={`status status--${project.statusTone}`}>{project.status}</span>

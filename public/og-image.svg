@@ -1,40 +1,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#f8faff"/>
-      <stop offset="1" stop-color="#e7ecff"/>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6D5DFC"/>
+      <stop offset=".55" stop-color="#22C1C3"/>
+      <stop offset="1" stop-color="#FF8A4C"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(940 110) rotate(135) scale(460)">
-      <stop stop-color="#3157d5" stop-opacity=".22"/>
-      <stop offset="1" stop-color="#3157d5" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0V48" fill="none" stroke="#172338" stroke-opacity=".06"/>
-    </pattern>
+    <linearGradient id="soft" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F0EDFF"/>
+      <stop offset="1" stop-color="#E5FAF6"/>
+    </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <g transform="translate(76 76)">
-    <rect width="58" height="58" rx="16" fill="#3157d5" stroke="#8ea2ff" stroke-opacity=".8"/>
-    <text x="29" y="36" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="700">SH</text>
-    <text x="0" y="160" fill="#3157d5" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">LEAD ANDROID ENGINEER · MOBILE ARCHITECT</text>
-    <text x="0" y="240" fill="#172338" font-family="Arial, sans-serif" font-size="66" font-weight="700">Shivayogi Hiremath</text>
-    <text x="0" y="318" fill="#172338" font-family="Arial, sans-serif" font-size="44" font-weight="700">Reliable mobile products, end to end.</text>
-    <text x="0" y="384" fill="#526178" font-family="Arial, sans-serif" font-size="26">Kotlin · Jetpack Compose · Clean Architecture · Enterprise Android</text>
-    <g transform="translate(0 442)">
-      <rect width="390" height="62" rx="31" fill="#3157d5"/>
-      <text x="195" y="40" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">shivayogih.github.io</text>
+  <rect width="1200" height="630" fill="#fff"/>
+  <circle cx="1050" cy="96" r="220" fill="#F0EDFF"/>
+  <circle cx="1110" cy="560" r="180" fill="#E3FAF5"/>
+  <circle cx="74" cy="620" r="170" fill="#FFF2E9"/>
+  <g transform="translate(72 64)">
+    <rect width="64" height="64" rx="18" fill="url(#brand)"/>
+    <text x="32" y="41" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="800">SH</text>
+    <text x="82" y="40" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="800">Shivayogi.</text>
+  </g>
+  <g transform="translate(72 206)">
+    <text fill="#6D5DFC" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2">LEAD ANDROID ENGINEER · MOBILE ARCHITECT</text>
+    <text y="82" fill="#111827" font-family="Arial, sans-serif" font-size="62" font-weight="800">Reliable Android products,</text>
+    <text y="150" fill="#111827" font-family="Arial, sans-serif" font-size="62" font-weight="800">built end to end.</text>
+    <text y="207" fill="#4B5563" font-family="Arial, sans-serif" font-size="25">Kotlin · Jetpack Compose · Clean Architecture</text>
+    <g transform="translate(0 258)">
+      <rect width="220" height="52" rx="12" fill="#111827"/>
+      <text x="110" y="34" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="700">View portfolio</text>
     </g>
   </g>
-  <g transform="translate(970 324)">
-    <circle r="146" fill="none" stroke="#3157d5" stroke-opacity=".18"/>
-    <circle r="102" fill="none" stroke="#137c86" stroke-opacity=".32" stroke-dasharray="9 10"/>
-    <rect x="-66" y="-112" width="132" height="224" rx="28" fill="#fff" stroke="#3157d5" stroke-opacity=".25" stroke-width="3"/>
-    <rect x="-45" y="-72" width="90" height="8" rx="4" fill="#3157d5"/>
-    <rect x="-45" y="-43" width="67" height="7" rx="3.5" fill="#137c86" opacity=".8"/>
-    <rect x="-45" y="-14" width="82" height="7" rx="3.5" fill="#526178" opacity=".36"/>
-    <rect x="-45" y="15" width="72" height="7" rx="3.5" fill="#526178" opacity=".24"/>
-    <circle cy="84" r="9" fill="#3157d5"/>
+  <g transform="translate(910 210)">
+    <rect width="224" height="268" rx="28" fill="url(#soft)" stroke="#E5E7EB"/>
+    <rect x="35" y="34" width="74" height="74" rx="22" fill="url(#brand)"/>
+    <text x="72" y="80" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="800">K</text>
+    <rect x="123" y="34" width="66" height="74" rx="22" fill="#FFF2DC"/>
+    <text x="156" y="80" text-anchor="middle" fill="#F59E0B" font-family="Arial, sans-serif" font-size="24" font-weight="800">A</text>
+    <rect x="35" y="126" width="154" height="12" rx="6" fill="#111827" fill-opacity=".84"/>
+    <rect x="35" y="154" width="118" height="9" rx="4.5" fill="#6B7280" fill-opacity=".45"/>
+    <rect x="35" y="178" width="138" height="9" rx="4.5" fill="#6B7280" fill-opacity=".27"/>
+    <rect x="35" y="220" width="92" height="20" rx="10" fill="#DDF8F0"/>
+    <rect x="136" y="220" width="53" height="20" rx="10" fill="#EEE9FF"/>
   </g>
 </svg>
