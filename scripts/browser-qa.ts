@@ -7,6 +7,7 @@ import { chromium, type Page } from "playwright-core";
 const origin = "http://127.0.0.1:4173";
 const sitePath = "/shivayogi-portfolio/";
 const siteUrl = `${origin}${sitePath}`;
+const adminUrl = `${siteUrl}admin/`;
 
 async function waitForServer() {
   for (let attempt = 0; attempt < 40; attempt += 1) {
@@ -76,7 +77,7 @@ try {
 
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
-    colorScheme: "dark",
+    colorScheme: "light",
     reducedMotion: "reduce",
     permissions: ["clipboard-read", "clipboard-write"],
   });
@@ -108,13 +109,17 @@ try {
     throw new Error(`First keyboard focus was not the skip link: ${firstFocusedText}`);
   }
 
-  const initialTheme = await page.locator("html").getAttribute("data-theme");
-  await page.getByRole("button", { name: "Toggle color theme" }).click();
-  const toggledTheme = await page.locator("html").getAttribute("data-theme");
-  if (initialTheme === toggledTheme) throw new Error("Theme toggle did not change the document theme.");
-  await page.reload({ waitUntil: "networkidle" });
-  if ((await page.locator("html").getAttribute("data-theme")) !== toggledTheme) {
-    throw new Error("Theme preference did not persist after reload.");
+  if (await page.getByRole("button", { name: "Toggle color theme" }).count()) {
+    throw new Error("The light-only portfolio still exposes a theme toggle.");
+  }
+  if ((await page.locator("html").evaluate((element) => getComputedStyle(element).colorScheme)) !== "light") {
+    throw new Error("The document does not declare a light-only color scheme.");
+  }
+
+  for (const app of ["Royal Caribbean International", "businessONLINE X", "Sam’s Club", "TropoGo"] ) {
+    if (!(await page.getByRole("link", { name: new RegExp(app, "i") }).count())) {
+      throw new Error(`Worked-app link is missing: ${app}.`);
+    }
   }
 
   await page.getByRole("button", { name: "Copy email" }).click();
@@ -132,6 +137,32 @@ try {
   if (browserErrors.length) {
     throw new Error(`Browser console errors:\n${browserErrors.join("\n")}`);
   }
+
+  const adminPage = await context.newPage();
+  adminPage.on("console", (message) => {
+    if (message.type() === "error") browserErrors.push(message.text());
+  });
+  adminPage.on("pageerror", (error) => browserErrors.push(error.message));
+  const adminResponse = await adminPage.goto(adminUrl, { waitUntil: "networkidle" });
+  if (adminResponse?.status() !== 200) {
+    throw new Error(`Admin page returned ${adminResponse?.status()}.`);
+  }
+  if (!(await adminPage.locator('meta[name="robots"]').getAttribute("content"))?.includes("noindex")) {
+    throw new Error("Admin page is missing noindex metadata.");
+  }
+  if (await adminPage.getByRole("button", { name: "Publish website changes" }).isEnabled()) {
+    throw new Error("Admin publishing is enabled without credentials and confirmation.");
+  }
+  await adminPage.screenshot({
+    path: path.resolve(".tools", "portfolio-admin.png"),
+    fullPage: true,
+    animations: "disabled",
+  });
+  await assertAccessibility(adminPage);
+  if (browserErrors.length) {
+    throw new Error(`Browser console errors:\n${browserErrors.join("\n")}`);
+  }
+  await adminPage.close();
 
   const mobileContext = await browser.newContext({
     viewport: { width: 390, height: 844 },
@@ -196,7 +227,7 @@ try {
   await responsiveContext.close();
   await context.close();
 
-  console.log("Browser QA passed: HTTP, links, console, keyboard, theme, mobile navigation, four responsive widths, overflow, and WCAG AA checks.");
+  console.log("Browser QA passed: HTTP, links, console, keyboard, light-only theme, worked apps, admin safeguards, mobile navigation, four responsive widths, overflow, and WCAG AA checks.");
 } finally {
   await browser?.close();
   preview.kill();

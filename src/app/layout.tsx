@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 import { portfolio } from "@/content/portfolio";
 import "./globals.css";
 
@@ -52,96 +52,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3f6f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#07161c" },
-  ],
+  colorScheme: "light",
+  themeColor: "#f5f7fb",
 };
-
-const themeScript = `
-  (function () {
-    try {
-      var saved = localStorage.getItem('theme');
-      var dark = saved === 'dark';
-      var theme = dark ? 'dark' : 'light';
-      document.documentElement.dataset.theme = theme;
-      document.documentElement.style.colorScheme = theme;
-    } catch (_) {}
-
-    function initializeInteractions() {
-      var themeToggle = document.querySelector('[data-theme-toggle]');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-          var current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
-          var next = current === 'dark' ? 'light' : 'dark';
-          document.documentElement.dataset.theme = next;
-          document.documentElement.style.colorScheme = next;
-          try { localStorage.setItem('theme', next); } catch (_) {}
-        });
-      }
-
-      var navigation = document.querySelector('[data-mobile-navigation]');
-      if (navigation) {
-        var menuToggle = navigation.querySelector('[data-menu-toggle]');
-        var menu = navigation.querySelector('#mobile-navigation-menu');
-        var openIcon = navigation.querySelector('[data-menu-icon-open]');
-        var closeIcon = navigation.querySelector('[data-menu-icon-close]');
-
-        function setMenuOpen(open) {
-          menuToggle.setAttribute('aria-expanded', String(open));
-          menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-          menu.hidden = !open;
-          openIcon.style.display = open ? 'none' : '';
-          closeIcon.style.display = open ? '' : 'none';
-          if (open) {
-            var firstLink = menu.querySelector('a');
-            if (firstLink) firstLink.focus();
-          }
-        }
-
-        menuToggle.addEventListener('click', function () {
-          setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
-        });
-        menu.addEventListener('click', function (event) {
-          if (event.target.closest('a')) setMenuOpen(false);
-        });
-        window.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
-            setMenuOpen(false);
-            menuToggle.focus();
-          }
-        });
-      }
-
-      document.querySelectorAll('[data-copy-email]').forEach(function (button) {
-        button.addEventListener('click', async function () {
-          var email = button.getAttribute('data-copy-email');
-          var status = button.parentElement.querySelector('[data-copy-status]');
-          try {
-            await navigator.clipboard.writeText(email);
-            status.textContent = 'Email copied to clipboard.';
-          } catch (_) {
-            status.textContent = 'Copy failed. Email: ' + email;
-          }
-        });
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initializeInteractions, { once: true });
-    } else {
-      initializeInteractions();
-    }
-  })();
-`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    <html lang="en">
       <body>
         <a className="skip-link" href="#main-content">
           Skip to main content

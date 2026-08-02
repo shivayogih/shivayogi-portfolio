@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Lead Android Engineer and Mobile Architect portfolio.",
     start_url: "/shivayogi-portfolio/",
     display: "standalone",
-    background_color: "#f3f6f4",
-    theme_color: "#0c5f68",
+    background_color: "#f5f7fb",
+    theme_color: "#3157d5",
     icons: [
       {
         src: "/shivayogi-portfolio/icon.svg",

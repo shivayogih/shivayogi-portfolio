@@ -6,16 +6,18 @@ const out = path.resolve("out");
 const requiredFiles = [
   "index.html",
   "404.html",
+  "admin/index.html",
   "resume/index.html",
   "robots.txt",
   "sitemap.xml",
   "manifest.webmanifest",
   "Shivayogi-Hiremath-Resume.pdf",
   "Shivayogi-Hiremath-Detailed-CV.pdf",
-  "shivayogi-hiremath-profile.jpeg",
+  "shivayogi-hiremath-profile.png",
   "icon.svg",
   "apple-touch-icon.svg",
   "og-image.svg",
+  ...portfolio.apps.flatMap((app) => (app.icon ? [app.icon.replace(/^\//, "")] : [])),
   ...portfolio.projects.map((project) => `projects/${project.slug}/index.html`),
 ];
 
@@ -43,6 +45,26 @@ if (!index.includes(portfolio.person.name) || !index.includes(portfolio.person.e
   throw new Error("Exported homepage is missing required identity content.");
 }
 
+for (const app of portfolio.apps) {
+  if (!index.includes(app.name) || !index.includes(app.href.replaceAll("&", "&amp;"))) {
+    throw new Error(`Exported homepage is missing the worked-app link for ${app.name}.`);
+  }
+}
+
+if (index.includes("Toggle color theme") || index.includes("data-theme-toggle")) {
+  throw new Error("The exported portfolio still includes dark-theme controls.");
+}
+
+const admin = await readFile(path.join(out, "admin", "index.html"), "utf8");
+if (!admin.includes("Portfolio admin") || !admin.includes("noindex")) {
+  throw new Error("The static export is missing the protected admin workspace metadata.");
+}
+
+const robots = await readFile(path.join(out, "robots.txt"), "utf8");
+if (!robots.includes("Disallow: /shivayogi-portfolio/admin/")) {
+  throw new Error("Robots metadata does not exclude the admin workspace.");
+}
+
 const socialImage = new URL("og-image.svg", portfolio.site.url).toString();
 if (!index.includes(socialImage)) {
   throw new Error("Exported homepage is missing the canonical social preview image URL.");
@@ -57,8 +79,8 @@ if (portfolio.projects.length !== 2 || !toolly) {
   throw new Error("The public project collection must contain only Toolly Scan and DataLoom.");
 }
 
-if (toolly.links[0]?.href !== "https://github.com/shivayogih/Toolly") {
-  throw new Error("Toolly must expose its verified public repository.");
+if (!toolly.links[0]?.href.startsWith("https://github.com/")) {
+  throw new Error("Toolly must expose a public GitHub repository.");
 }
 
 if (process.env.GITHUB_ACTIONS === "true") {

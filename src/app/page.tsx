@@ -9,6 +9,7 @@ import { Projects } from "@/components/sections/projects";
 import { ResumeSection } from "@/components/sections/resume-section";
 import { Skills } from "@/components/sections/skills";
 import { Strengths } from "@/components/sections/strengths";
+import { WorkedApps } from "@/components/sections/worked-apps";
 import { portfolio } from "@/content/portfolio";
 
 export default function HomePage() {
@@ -64,6 +65,7 @@ export default function HomePage() {
       <Strengths />
       <Experience />
       <EnterpriseExperience />
+      <WorkedApps />
       <Projects />
       <Skills />
       <Principles />

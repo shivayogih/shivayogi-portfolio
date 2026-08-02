@@ -39,12 +39,12 @@ export function Hero() {
         <figure className="hero-portrait">
           <div className="hero-portrait__frame">
             <Image
-              src={withBasePath("/shivayogi-hiremath-profile.jpeg")}
-              alt="Shivayogi Hiremath wearing a navy suit"
-              width={1228}
-              height={1333}
+              src={withBasePath(portfolio.person.profileImage)}
+              alt={portfolio.person.profileAlt}
+              width={370}
+              height={378}
               priority
-              sizes="(max-width: 760px) 88vw, (max-width: 1040px) 520px, 42vw"
+              sizes="(max-width: 760px) 72vw, 370px"
             />
           </div>
           <div className="hero-portrait__badge" aria-hidden="true">

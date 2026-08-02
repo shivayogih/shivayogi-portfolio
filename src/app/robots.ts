@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: "/shivayogi-portfolio/admin/",
     },
     sitemap: `${portfolio.site.url}sitemap.xml`,
     host: portfolio.site.url,

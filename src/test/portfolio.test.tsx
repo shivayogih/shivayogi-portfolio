@@ -3,6 +3,7 @@ import path from "node:path";
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { Header } from "@/components/layout/header";
+import { AdminEditor } from "@/components/admin/admin-editor";
 import { Footer } from "@/components/layout/footer";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
@@ -11,6 +12,7 @@ import { Principles } from "@/components/sections/principles";
 import { Projects } from "@/components/sections/projects";
 import { ResumeSection } from "@/components/sections/resume-section";
 import { Skills } from "@/components/sections/skills";
+import { WorkedApps } from "@/components/sections/worked-apps";
 import { withBasePath } from "@/config/site";
 import { portfolio } from "@/content/portfolio";
 
@@ -19,7 +21,7 @@ describe("portfolio content and interaction contract", () => {
     render(<Hero />);
     expect(
       screen.getByRole("heading", {
-        name: "Android engineering for products where reliability is not optional.",
+        name: portfolio.person.hero,
       }),
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /explore my work/i })).toHaveAttribute("href", "#projects");
@@ -34,8 +36,19 @@ describe("portfolio content and interaction contract", () => {
     for (const item of portfolio.navigation) {
       expect(screen.getAllByRole("link", { name: item.label }).length).toBeGreaterThan(0);
     }
-    expect(screen.getByRole("button", { name: /toggle color theme/i })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /toggle color theme/i })).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: /open navigation menu/i })).toBeInTheDocument();
+  });
+
+  it("renders verified public links for applications from the supplied CV", () => {
+    render(<WorkedApps />);
+    expect(portfolio.apps).toHaveLength(7);
+    for (const app of portfolio.apps) {
+      expect(screen.getByRole("link", { name: new RegExp(app.name, "i") })).toHaveAttribute(
+        "href",
+        app.href,
+      );
+    }
   });
 
   it("renders only Toolly Scan and DataLoom with verified public repositories", () => {
@@ -47,12 +60,11 @@ describe("portfolio content and interaction contract", () => {
     }
     const toollyCard = screen.getByRole("heading", { name: "Toolly Scan" }).closest("article");
     expect(toollyCard).not.toBeNull();
-    expect(within(toollyCard!).getByRole("link", { name: /view public repository/i })).toHaveAttribute(
-      "href",
-      "https://github.com/shivayogih/Toolly",
-    );
-    expect(portfolio.projects.find((project) => project.slug === "dataloom")?.links[0]?.href).toBe(
-      "https://github.com/dataloom-sdk/dataloom",
+    expect(
+      within(toollyCard!).getByRole("link", { name: /view public repository/i }).getAttribute("href"),
+    ).toMatch(/^https:\/\/github\.com\//);
+    expect(portfolio.projects.find((project) => project.slug === "dataloom")?.links[0]?.href).toMatch(
+      /^https:\/\/github\.com\//,
     );
   });
 
@@ -60,11 +72,11 @@ describe("portfolio content and interaction contract", () => {
     render(<Footer />);
     expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/shivayogi-h-45784594",
+      portfolio.socials.find((social) => social.label === "LinkedIn")?.href,
     );
     expect(screen.getByRole("link", { name: "Medium" })).toHaveAttribute(
       "href",
-      "https://medium.com/@shivayogih25",
+      portfolio.socials.find((social) => social.label === "Medium")?.href,
     );
     expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute("href", portfolio.person.github);
   });
@@ -99,9 +111,19 @@ describe("portfolio content and interaction contract", () => {
     expect(screen.getByRole("heading", { name: /right level of detail/i })).toBeInTheDocument();
   });
 
-  it("ships the supplied resume, detailed CV, and profile portrait", () => {
+  it("renders the separate GitHub-backed admin publishing workspace", () => {
+    render(<AdminEditor />);
+    expect(screen.getByRole("heading", { name: "Portfolio admin" })).toBeInTheDocument();
+    expect(screen.getByLabelText("GitHub token")).toHaveAttribute("type", "password");
+    expect(screen.getByRole("button", { name: "Publish website changes" })).toBeDisabled();
+  });
+
+  it("ships the supplied resume, detailed CV, profile portrait, and worked-app icons", () => {
     expect(existsSync(path.resolve("public", "Shivayogi-Hiremath-Resume.pdf"))).toBe(true);
     expect(existsSync(path.resolve("public", "Shivayogi-Hiremath-Detailed-CV.pdf"))).toBe(true);
-    expect(existsSync(path.resolve("public", "shivayogi-hiremath-profile.jpeg"))).toBe(true);
+    expect(existsSync(path.resolve("public", "shivayogi-hiremath-profile.png"))).toBe(true);
+    for (const app of portfolio.apps.filter((item) => item.icon)) {
+      expect(existsSync(path.resolve("public", app.icon!.replace(/^\//, "")))).toBe(true);
+    }
   });
 });

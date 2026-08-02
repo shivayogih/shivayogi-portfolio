@@ -1,7 +1,6 @@
 import { withBasePath } from "@/config/site";
 import { portfolio } from "@/content/portfolio";
 import { MobileNavigation } from "./mobile-navigation";
-import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const navigationLinks = portfolio.navigation.map((item) => ({
@@ -28,7 +27,6 @@ export function Header() {
         </nav>
 
         <div className="site-header__actions">
-          <ThemeToggle />
           <MobileNavigation links={navigationLinks} />
         </div>
       </div>
