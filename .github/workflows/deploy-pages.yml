@@ -44,8 +44,8 @@ jobs:
       - name: Validate source
         run: npm run lint && npm run typecheck && npm run test
 
-      - name: Generate and verify resume
-        run: npm run generate:resume && npm run verify:resume
+      - name: Verify supplied resume assets
+        run: npm run verify:resume
 
       - name: Build static export
         run: npm run build

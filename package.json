@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Professional portfolio for Shivayogi Hiremath, Lead Android Developer and Mobile Architect.",
+  "description": "Professional portfolio for Shivayogi Hiremath, Lead Android Engineer and Mobile Architect.",
   "license": "MIT",
   "engines": {
     "node": ">=22 <23",
@@ -24,10 +24,9 @@
     "test:watch": "vitest",
     "qa:browser": "tsx scripts/browser-qa.ts",
     "qa:lighthouse": "tsx scripts/lighthouse-qa.ts",
-    "generate:resume": "tsx scripts/generate-resume.ts",
     "verify:export": "tsx scripts/verify-export.ts",
     "verify:resume": "tsx scripts/verify-resume.ts",
-    "verify": "npm run lint && npm run typecheck && npm run test && npm run generate:resume && npm run verify:resume && npm run build && npm run verify:export"
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run verify:resume && npm run build && npm run verify:export"
   },
   "dependencies": {
     "next": "16.2.12",

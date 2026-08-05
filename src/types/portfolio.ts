@@ -19,6 +19,16 @@ export type Experience = {
   earlier?: boolean;
 };
 
+export type WorkedApp = {
+  name: string;
+  company: string;
+  contribution: string;
+  href: string;
+  platform: string;
+  icon?: string;
+  archived?: boolean;
+};
+
 export type ProjectLink = {
   label: string;
   href: string;
@@ -67,6 +77,8 @@ export type PortfolioContent = {
     heroSupport: string;
     summary: string;
     github: string;
+    profileImage: string;
+    profileAlt: string;
   };
   site: {
     title: string;
@@ -78,6 +90,7 @@ export type PortfolioContent = {
   socials: readonly SocialLink[];
   strengths: readonly { title: string; description: string }[];
   experience: readonly Experience[];
+  apps: readonly WorkedApp[];
   projects: readonly Project[];
   skillGroups: readonly SkillGroup[];
   principles: readonly Principle[];

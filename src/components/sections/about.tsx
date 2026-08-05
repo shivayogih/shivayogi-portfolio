@@ -7,7 +7,7 @@ export function About() {
       <div className="shell about-grid">
         <SectionHeading
           eyebrow="Professional summary"
-          title="Senior mobile engineering, grounded in delivery."
+          title="Hands-on leadership, from architecture to release."
           headingId="about-title"
         />
         <div className="about-copy">
@@ -15,11 +15,10 @@ export function About() {
             {portfolio.person.summary}
           </p>
           <p>
-            My experience spans travel and hospitality, banking and fintech,
-            retail and e-commerce, insurance, mobility, location-aware products,
-            and enterprise mobile applications. I favour clear product language,
-            evidence-led technical choices, and systems that the next engineer can
-            understand.
+            My work spans products serving millions of users across hospitality,
+            banking, retail, insurance, and mobility. I pair architecture ownership
+            with practical delivery: structured reviews, mentoring, automated
+            quality checks, and systems the next engineer can understand.
           </p>
         </div>
       </div>

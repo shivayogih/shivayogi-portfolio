@@ -1,21 +1,47 @@
+import Image from "next/image";
 import { portfolio } from "@/content/portfolio";
 import { withBasePath } from "@/config/site";
 
 export function Hero() {
+  const visibleSocials = portfolio.socials.filter(
+    (social): social is (typeof portfolio.socials)[number] & { href: string } =>
+      Boolean(social.href),
+  );
+  const socialMarks: Record<string, string> = {
+    GitHub: "GH",
+    LinkedIn: "in",
+    Medium: "M",
+  };
+
   return (
     <section className="hero" id="home" aria-labelledby="hero-title">
       <div className="shell hero__grid">
         <div className="hero__content">
-          <div className="availability-pill">
-            <span aria-hidden="true" />
-            {portfolio.person.availability}
-          </div>
-          <p className="hero__role">Lead Android Developer · Mobile Architect</p>
-          <h1 id="hero-title">{portfolio.person.hero}</h1>
+          <p className="hero__role">Lead Android Engineer · Kotlin · Jetpack Compose</p>
+          <h1 id="hero-title">
+            <span>Hi, I&apos;m </span>
+            <span className="hero__name">
+              Shivayogi <span className="hero__wave" aria-hidden="true">👋</span>
+            </span>
+          </h1>
+          <h2 className="hero__headline">{portfolio.person.hero}</h2>
           <p className="hero__support">{portfolio.person.heroSupport}</p>
+          <div className="hero__meta" aria-label="Location and availability">
+            <span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              {portfolio.person.location}
+            </span>
+            <span className="hero__available">
+              <i aria-hidden="true" />
+              {portfolio.person.availability}
+            </span>
+          </div>
           <div className="button-row" aria-label="Portfolio actions">
             <a className="button button--primary" href="#projects">
-              View my work <span aria-hidden="true">↘</span>
+              Explore my work <span aria-hidden="true">↘</span>
             </a>
             <a
               className="button button--secondary"
@@ -24,68 +50,30 @@ export function Hero() {
             >
               Download resume
             </a>
-            <a
-              className="button button--ghost"
-              href={`mailto:${portfolio.person.email}`}
-            >
-              Contact me
-            </a>
-            <a
-              className="button button--ghost"
-              href={portfolio.person.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub <span className="sr-only">(opens in a new tab)</span>
-            </a>
           </div>
-          <dl className="hero__facts" aria-label="Professional profile highlights">
-            <div>
-              <dt>Experience</dt>
-              <dd>Android engineering since 2017</dd>
-            </div>
-            <div>
-              <dt>Based in</dt>
-              <dd>{portfolio.person.location}</dd>
-            </div>
-            <div>
-              <dt>Core focus</dt>
-              <dd>Kotlin · Compose · Architecture</dd>
-            </div>
-          </dl>
+          <nav className="hero__socials" aria-label="Social profiles">
+            {visibleSocials.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`${social.label} (opens in a new tab)`}>
+                <span aria-hidden="true">{socialMarks[social.label] ?? social.label.slice(0, 2)}</span>
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <div className="hero-visual" aria-label="Android architecture illustration">
-          <div className="hero-visual__orbit hero-visual__orbit--one" />
-          <div className="hero-visual__orbit hero-visual__orbit--two" />
-          <div className="hero-visual__device">
-            <div className="hero-visual__topbar">
-              <span />
-              <span />
-              <span />
-              <p>mobile.architecture.kt</p>
-            </div>
-            <div className="code-block" aria-hidden="true">
-              <p><span className="code-keyword">sealed interface</span> UiState</p>
-              <p className="code-indent"><span className="code-keyword">data class</span> Ready(</p>
-              <p className="code-indent code-indent--two">val product: Product</p>
-              <p className="code-indent">) : UiState</p>
-              <p className="code-space" />
-              <p><span className="code-keyword">fun</span> build() = architecture &#123;</p>
-              <p className="code-indent">state = <span className="code-value">explicit</span></p>
-              <p className="code-indent">offline = <span className="code-value">resilient</span></p>
-              <p className="code-indent">delivery = <span className="code-value">tested</span></p>
-              <p>&#125;</p>
-            </div>
-            <div className="hero-visual__signal">
-              <span aria-hidden="true">✓</span>
-              <div>
-                <strong>Release-ready thinking</strong>
-                <p>Architecture through delivery</p>
-              </div>
-            </div>
+        <figure className="hero-portrait">
+          <div className="hero-portrait__frame">
+            <Image
+              src={withBasePath(portfolio.person.profileImage)}
+              alt={portfolio.person.profileAlt}
+              width={370}
+              height={378}
+              priority
+              sizes="(max-width: 760px) 72vw, 370px"
+            />
           </div>
-        </div>
+          <div className="hero-portrait__accent hero-portrait__accent--purple" aria-hidden="true" />
+          <div className="hero-portrait__accent hero-portrait__accent--mint" aria-hidden="true" />
+        </figure>
       </div>
     </section>
   );

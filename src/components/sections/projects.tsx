@@ -8,15 +8,15 @@ export function Projects() {
       <div className="shell">
         <SectionHeading
           eyebrow="Featured products and projects"
-          title="Purposeful mobile systems, presented with honest status."
-          description="Product architecture, technical decisions, and current state—without invented outcomes, private source links, or confidential client material."
+          title="Two products. Two systems problems worth solving."
+          description="Toolly Scan brings useful document and QR workflows together on Android. DataLoom explores deterministic synchronization across Android and Kotlin Multiplatform. Both repositories are public and linked below."
           headingId="projects-title"
         />
         <div className="project-grid">
           {portfolio.projects
             .filter((project) => project.featured)
-            .map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+            .map((project, index) => (
+              <ProjectCard key={project.slug} project={project} index={index} />
             ))}
         </div>
       </div>

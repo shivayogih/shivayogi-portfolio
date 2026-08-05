@@ -1,6 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#111823"/>
-  <path d="M14 15h36v34H14z" fill="none" stroke="#6fd9d0" stroke-width="2" opacity=".55"/>
-  <path d="M20 23c3-4 17-4 20 0-3 2-6 3-10 3s-7 1-7 4c0 2 2 3 7 4 7 1 11 4 11 9 0 3-1 5-3 7h-7c3-2 4-4 4-6 0-3-2-4-7-5-8-1-12-4-12-9 0-3 1-5 4-7Z" fill="#a69cff"/>
-  <path d="M38 15h7v34h-7V35H26v14h-7V15h7v14h12V15Z" fill="#f4f3ee" fill-opacity=".92"/>
+  <defs>
+    <linearGradient id="brand" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6D5DFC"/>
+      <stop offset=".54" stop-color="#22C1C3"/>
+      <stop offset="1" stop-color="#FF8A4C"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="17" fill="url(#brand)"/>
+  <circle cx="49" cy="14" r="8" fill="#FFD166" fill-opacity=".96"/>
+  <path d="M18 18h8v11h12V18h8v28h-8V35H26v11h-8V18Z" fill="#fff"/>
+  <path d="M13 22c4-5 13-7 21-4l-3 6c-5-2-10-1-11 1-1 2 2 3 7 4 7 1 11 4 11 9 0 4-2 7-5 9h-12c6-2 9-4 9-7 0-2-3-3-8-4-8-2-11-6-9-14Z" fill="#fff" fill-opacity=".9"/>
 </svg>

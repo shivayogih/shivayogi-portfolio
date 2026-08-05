@@ -43,18 +43,20 @@ export function Experience() {
           ))}
         </div>
 
-        <div className="earlier-experience">
-          <h3>Earlier experience</h3>
-          <div className="earlier-experience__grid">
-            {earlierExperience.map((item) => (
-              <article key={`${item.company}-${item.period}`}>
-                <p>{item.period}</p>
-                <h4>{item.company}</h4>
-                <span>{item.role}</span>
-              </article>
-            ))}
+        {earlierExperience.length ? (
+          <div className="earlier-experience">
+            <h3>Earlier experience</h3>
+            <div className="earlier-experience__grid">
+              {earlierExperience.map((item) => (
+                <article key={`${item.company}-${item.period}`}>
+                  <p>{item.period}</p>
+                  <h4>{item.company}</h4>
+                  <span>{item.role}</span>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
   );

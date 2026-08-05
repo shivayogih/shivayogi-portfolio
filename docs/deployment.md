@@ -36,7 +36,7 @@ PowerShell:
 $env:GITHUB_ACTIONS = "true"
 $env:NEXT_PUBLIC_GITHUB_PAGES = "true"
 $env:NEXT_PUBLIC_BASE_PATH = "/shivayogi-portfolio"
-npm run generate:resume
+npm run verify:resume
 npm run build
 npm run verify:export
 ```
@@ -49,6 +49,6 @@ After deployment:
 
 1. confirm the Pages workflow completes successfully;
 2. request the production URL and confirm HTTP 200;
-3. inspect home, resume, project, and 404 routes;
-4. verify navigation, theme persistence, mobile menu, PDF download, SVG assets, and `_next` assets under the repository path;
+3. inspect home, admin, resume, project, and 404 routes;
+4. verify navigation, the light-only theme, mobile menu, worked-app links/icons, admin credential safeguards, PDF downloads, SVG assets, and `_next` assets under the repository path;
 5. capture the final production screenshot and update `docs/portfolio-preview.png` if presentation changed.

@@ -2,12 +2,11 @@
 
 ## Source of truth
 
-Update `src/content/portfolio.ts`. Avoid placing personal facts directly inside presentation components when they can reasonably belong in the typed model.
+Use the separate `/admin/` page for routine updates, or edit `src/content/portfolio.json` directly during code review. Avoid placing personal facts directly inside presentation components when they can reasonably belong in the content model.
 
 After every content change:
 
 ```bash
-npm run generate:resume
 npm run verify
 ```
 
@@ -26,18 +25,29 @@ Do not add:
 
 ## Project status language
 
-- Toolly must remain labelled `Private product — active development`. It must not expose a source URL or imply a public release.
+- Toolly Scan must link only to the verified public repository at `https://github.com/shivayogih/Toolly` and must not imply production adoption.
 - DataLoom must remain described as active pre-V1 development and not production-ready until its public repository documents otherwise.
-- GalaxyGaze must not display a source link unless a matching public repository is verified.
-- Enterprise case studies must remain high-level and free of client-confidential material.
+- The featured project collection contains only Toolly Scan and DataLoom unless Shivayogi explicitly requests another verified project.
 
 ## Adding a verified social link
 
 Add a `{ label, href }` item to `portfolio.socials` only after verifying the public URL belongs to Shivayogi. Empty items are intentionally filtered from the interface and structured-data `sameAs` list.
 
+## Worked applications
+
+`portfolio.apps` contains public store links for Royal Caribbean International, businessONLINE X, Sam’s Club, TropoGo, Maharah, Maher, and the archived MyDukan listing. Each card must describe Shivayogi’s contribution conservatively and acknowledge that the work was completed as part of the respective product and engineering team. Store local icons under `public/app-icons/`.
+
 ## Adding a project
 
 Supply every field in the `Project` type: overview, problem, role, approach, architecture, decisions, challenges, outcome, technologies, current status, and verified links. Use conservative outcome language when metrics or release state are unknown.
+
+## Resume and portrait assets
+
+The canonical two-page resume, detailed three-page CV, and profile portrait are supplied assets. The admin page can replace them in one atomic GitHub commit. Do not regenerate, retouch, or replace them without an updated source file from Shivayogi. Run `npm run verify:resume` after replacing either PDF.
+
+## Admin publishing security
+
+Use a fine-grained GitHub personal access token restricted to `shivayogih/shivayogi-portfolio` with **Contents: read and write**. The admin page intentionally does not store the token and enables publishing only on the live GitHub Pages hostname; localhost and branch previews are view-only. Never place the token in portfolio content, a URL, browser storage, screenshots, source files, or issue/PR comments.
 
 ## Tone
 

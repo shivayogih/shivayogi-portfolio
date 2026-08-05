@@ -5,11 +5,14 @@ import { portfolio } from "@/content/portfolio";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: `Professional resume of ${portfolio.person.name}, Lead Android Developer and Mobile Architect.`,
+  description: `Professional resume of ${portfolio.person.name}, Lead Android Engineer and Mobile Architect.`,
   alternates: { canonical: `${portfolio.site.url}resume/` },
 };
 
 export default function ResumePage() {
+  const linkedIn = portfolio.socials.find((social) => social.label === "LinkedIn")?.href;
+  const medium = portfolio.socials.find((social) => social.label === "Medium")?.href;
+
   return (
     <article className="html-resume">
       <div className="shell shell--resume">
@@ -23,12 +26,17 @@ export default function ResumePage() {
             <p>{portfolio.person.location}</p>
             <a href={`mailto:${portfolio.person.email}`}>{portfolio.person.email}</a>
             <a href={portfolio.person.github}>{portfolio.person.github.replace("https://", "")}</a>
+            {linkedIn ? <a href={linkedIn}>linkedin.com/in/shivayogi-h-45784594</a> : null}
+            {medium ? <a href={medium}>medium.com/@shivayogih25</a> : null}
             <a
               className="button button--primary"
               href={withBasePath("/Shivayogi-Hiremath-Resume.pdf")}
               download
             >
-              Download PDF
+              Download 2-page resume
+            </a>
+            <a href={withBasePath("/Shivayogi-Hiremath-Detailed-CV.pdf")} download>
+              Download detailed CV
             </a>
           </div>
         </header>
@@ -83,7 +91,7 @@ export default function ResumePage() {
         <section aria-labelledby="resume-projects">
           <h2 id="resume-projects">Selected projects</h2>
           <div className="html-resume__projects">
-            {portfolio.projects.slice(0, 3).map((project) => (
+            {portfolio.projects.map((project) => (
               <article key={project.slug}>
                 <h3>{project.name}</h3>
                 <p>{project.status}</p>
