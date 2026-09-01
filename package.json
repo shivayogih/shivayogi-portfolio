@@ -29,7 +29,7 @@
     "verify": "npm run lint && npm run typecheck && npm run test && npm run verify:resume && npm run build && npm run verify:export"
   },
   "dependencies": {
-    "next": "16.2.12",
+    "next": "16.3.3",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
