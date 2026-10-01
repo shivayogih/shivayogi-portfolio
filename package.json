@@ -29,9 +29,9 @@
     "verify": "npm run lint && npm run typecheck && npm run test && npm run verify:resume && npm run build && npm run verify:export"
   },
   "dependencies": {
-    "next": "16.2.12",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
@@ -39,8 +39,8 @@
     "@testing-library/jest-dom": "7.0.0",
     "@testing-library/react": "16.3.2",
     "@types/node": "26.1.2",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "chrome-launcher": "1.2.1",
     "eslint": "9.39.5",
     "eslint-config-next": "16.2.12",
